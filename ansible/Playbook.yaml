@@ -7,7 +7,7 @@
   tasks:
     
     - name: update repository
-      apt=get:
+      apt-get:
          update_cache: yes
     
     - name: install java on ec2 instance
