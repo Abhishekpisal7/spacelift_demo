@@ -26,7 +26,7 @@ data "aws_security_group" "sg" {
 
 resource "aws_key_pair" "name" {
     
-    key_name = "newkey_1"
+    #key_name = "newkey_1"
     public_key = file(var.public_key)
 
 }
