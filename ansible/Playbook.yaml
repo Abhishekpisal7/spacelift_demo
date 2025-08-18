@@ -1,10 +1,14 @@
 ---
 - name: playbook for installing java in 
   hosts: all
-  become: true
+  become: yes
   
         
-  tasks:   
+  tasks:
+    
+    - name: update repository
+      apt:
+         update_cache: yes
     
     - name: install java on ec2 instance
       apt:
