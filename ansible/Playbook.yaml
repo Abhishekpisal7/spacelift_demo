@@ -12,7 +12,7 @@
     
     - name: install java on ec2 instance
       apt:
-         name: openjdk-21-jre
+         name: openjdk-17-jre
          state: present
 
     - name: add jenkins repo key
