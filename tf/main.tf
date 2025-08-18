@@ -36,7 +36,7 @@ resource "aws_instance" "instance" {
     for_each = toset([ "instance-1" ,"instance-2" ])
     ami = data.aws_ami.ubuntu.id
     instance_type = "t2.micro"
-    key_name = aws_key_pair.name
+    key_name = aws_key_pair.name.key_name
     vpc_security_group_ids = [data.aws_security_group.sg.id]
     
     tags = {
