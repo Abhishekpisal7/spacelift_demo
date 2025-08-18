@@ -12,7 +12,7 @@
     
     - name: install java on ec2 instance
       apt:
-         name: openjdk-17-jre-headless
+         name: openjdk-17
          state: present
          update_cache: yes
 
