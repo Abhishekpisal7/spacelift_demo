@@ -2,16 +2,7 @@
 - name: playbook for installing java in 
   hosts: all
   become: true
-  pre_tasks:
-     - name: set user for ubuntu 
-       set_fact:
-          ansible_user: ubuntu
-       when: ansible_os_family  == Debian 
-
-     - name: set user for ec2-user   
-       set_fact:
-           ansible_user: ec2-user
-       when: ansible_os_family == Redhat
+  
         
   tasks:
     
