@@ -7,14 +7,14 @@
   tasks:
     
     - name: update repository
-      apt:
+      apt=get:
          update_cache: yes
     
     - name: install java on ec2 instance
-      apt:
+      apt-get:
          name: openjdk-17-jre
          state: present
-         update_cache: yes
+        
 
     - name: add jenkins repo key
       apt_key: 
