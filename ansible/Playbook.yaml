@@ -4,15 +4,11 @@
   become: true
   
         
-  tasks:
-    
-    - name: update repository
-      apt:
-         update_cache: yes
+  tasks:   
     
     - name: install java on ec2 instance
       apt:
-         name: java
+         name: openjdk-17-jre
          state: present
          update_cache: yes
 
