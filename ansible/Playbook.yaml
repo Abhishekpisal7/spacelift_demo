@@ -1,0 +1,54 @@
+---
+- name: playbook for installing java in 
+  hosts: all
+  become: true
+  pre_tasks:
+     - name: set user for ubuntu 
+       set_fact:
+          ansible_user: ubuntu
+       when: ansible_os_family  == Debian 
+
+     - name: set user for ec2-user   
+       set_fact:
+           ansible_user: ec2-user
+       when: ansible_os_family == Redhat
+        
+  tasks:
+    
+    - name: update repository
+      apt:
+         update_cache: yes
+    
+    - name: install java on ec2 instance
+      apt:
+         name: openjdk-21-jre
+         state: present
+
+    - name: add jenkins repo key
+      apt_key: 
+         url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+         state: present
+
+    - name: add jenkins repo
+      apt_repository:
+          repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+          state: present
+
+    - name: update repository
+      apt:
+         update_cache: yes
+
+    - name: install jenkins
+      apt:
+         name: jenkins
+         state: present
+
+    - name: start jenkins
+      systemd:
+         name: jenkins
+         state: started
+
+    - name: enable jenkins                  
+      systemd:
+         name: jenkins
+         enabled: yes  
