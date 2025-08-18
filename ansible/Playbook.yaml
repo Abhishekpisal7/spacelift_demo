@@ -7,11 +7,11 @@
   tasks:
     
     - name: update repository
-      apt-get:
+      apt:
          update_cache: yes
     
     - name: install java on ec2 instance
-      apt-get:
+      apt:
          name: openjdk-17-jre
          state: present
         
