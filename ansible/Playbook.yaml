@@ -6,41 +6,46 @@
         
   tasks:
     
-    - name: update repository
-      apt:
-         update_cache: yes
+    # - name: update repository
+    #   apt:
+    #      update_cache: yes
     
-    - name: install java on ec2 instance
-      apt:
-         name: openjdk-17-jre
-         state: present
+    # - name: install java on ec2 instance
+    #   apt:
+    #      name: openjdk-17-jre
+    #      state: present
         
 
-    - name: add jenkins repo key
-      apt_key: 
-         url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-         state: present
+    # - name: add jenkins repo key
+    #   apt_key: 
+    #      url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    #      state: present
 
-    - name: add jenkins repo
-      apt_repository:
-          repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
-          state: present
+    # - name: add jenkins repo
+    #   apt_repository:
+    #       repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+    #       state: present
 
-    - name: update repository
+    # - name: update repository
+    #   apt:
+    #      update_cache: yes
+
+    # - name: install jenkins
+    #   apt:
+    #      name: jenkins
+    #      state: present
+
+    # - name: start jenkins
+    #   systemd:
+    #      name: jenkins
+    #      state: started
+
+    # - name: enable jenkins                  
+    #   systemd:
+    #      name: jenkins
+    #      enabled: yes  
+    - name: install nginx
       apt:
-         update_cache: yes
-
-    - name: install jenkins
-      apt:
-         name: jenkins
-         state: present
-
-    - name: start jenkins
-      systemd:
-         name: jenkins
-         state: started
-
-    - name: enable jenkins                  
-      systemd:
-         name: jenkins
-         enabled: yes  
+        name: nginx
+        state: present
+        update_cache: yes  
