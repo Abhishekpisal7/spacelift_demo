@@ -19,7 +19,7 @@ data "aws_ami" "ubuntu" {
 data "aws_security_group" "sg" {
 
     tags = {
-        Name =  "default"
+        Name =  "Main"
     }
   
 }
